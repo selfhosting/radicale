@@ -1,0 +1,17 @@
+[server]
+hosts = 0.0.0.0:5232
+
+[storage]
+filesystem_folder = /data/collections
+
+[auth]
+type = radicale_auth_ldap
+
+# LDAP server URL, with protocol and port
+ldap_url = LDAP_URL
+ldap_base = LDAP_BASE
+ldap_attribute = LDAP_ATTRIBUTE
+ldap_filter = LDAP_FILTER
+ldap_binddn = LDAP_BINDDN
+ldap_password = LDAP_PASSWORD
+ldap_scope = LEVEL

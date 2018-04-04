@@ -1,0 +1,25 @@
+version: '2'
+services:
+  app:
+    container_name: radicale
+    build: img/
+    restart: always
+    ports:
+    - "10021:5232"
+    volumes:
+    - ./data/files:/data
+    external_links:
+    - ldap
+    networks:
+    - authentication
+    environment:
+      LDAP_URL: ldap://ldap:389
+      LDAP_BASE: ou=people,dc=kerjean,dc=me
+      LDAP_ATTRIBUTE: mail
+      LDAP_FILTER: (objectClass=person)
+      LDAP_BINDDN: cn=readonly,dc=kerjean,dc=me
+      LDAP_PASSWORD: random
+
+networks:
+  authentication:
+    external: true    
